@@ -17,6 +17,16 @@
 
     <div class="container">
 
+      {% if user.is_authenticated %}
+        <p>You are logged in</p>
+        <p>User: {{user.username}}!!</p>
+        <p>To logout <a href="{% url 'logout' %}">Click here!</a></p>
+
+      {% else %}
+        <p>You are not logged!!!</p>
+        <p>Please <a href="{% url 'login' %}">Login here</a></p>
+      {% endif %}
+
       {% block content %}
 
       {% endblock content %}
